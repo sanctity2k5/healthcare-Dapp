@@ -269,7 +269,7 @@ const authorizeProvider = async () => {
 }
 
   return (
-    <div className="flex flex-col justify-center items-center w-full">
+    <div className="flex flex-col justify-center items-center">
       <h1 className="text-green-600 font-bold">HealthCare Application</h1>
       <div>
         <p>Connected Account: {account}</p>
