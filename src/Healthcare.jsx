@@ -186,6 +186,15 @@ function Healthcare() {
     }
   ]
 
+   // Utility function to check for network connection
+   const ensureNetworkConnection = () => {
+    if (!provider || !signer) {
+      alert("You're not connected to any blockchain");
+      return false;
+    }
+    return true;
+  };
+
   useEffect(() => {
     const connectToWallet = async () => {
       try {
@@ -227,6 +236,7 @@ function Healthcare() {
 
   //Fetch Patient Records
   const fetchPatientRecords = async () => {
+    if (!ensureNetworkConnection()) return;
     console.log("Fetching patient records...");
     if(patientId) {
       try {
@@ -242,6 +252,7 @@ function Healthcare() {
 
   //Add Patient Record
   const addRecord = async () => {
+    if (!ensureNetworkConnection()) return;
     console.log("Adding patient record...");
       try {
         const tx = await contract.addRecord(patientId, name, diagnosis, treatment);
@@ -255,6 +266,7 @@ function Healthcare() {
 
   //Authorize Provider
 const authorizeProvider = async () => {
+  if (!ensureNetworkConnection()) return;
     console.log("Authorizing provider...");
     if(isOwner) {
       try {
