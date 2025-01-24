@@ -14,7 +14,7 @@ function Healthcare() {
   const [name, setName] = useState("");
   const [providerAddress, setProviderAddress] = useState("");
 
-  const contractAddress = "0x96a895c4e89b8576d4a15b72ed2d76d579b07e1b";
+  const contractAddress = "0xb4a441f3ca7da3161d1fa95f050cf8644f58bdcf";
   const contractABI =[
     {
       "inputs": [],
@@ -60,25 +60,6 @@ function Healthcare() {
       "name": "authorizedProvider",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "authorizedProviders",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -135,50 +116,6 @@ function Healthcare() {
           "internalType": "struct HealthcareRecords.Record[]",
           "name": "",
           "type": "tuple[]"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "patientRecords",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "recordID",
-          "type": "uint256"
-        },
-        {
-          "internalType": "string",
-          "name": "patientName",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "diagnosis",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "treatment",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "timestamp",
-          "type": "uint256"
         }
       ],
       "stateMutability": "view",
@@ -346,7 +283,7 @@ const authorizeProvider = async () => {
         <h2>Patient Records</h2>
         {patientRecords.map((record) => (
           <div key={record.id}>
-            <p>Patient ID: {record.recordID.toNumber()}</p>
+            {/* <p>Patient ID: {record.recordID.toNumber()}</p> */}
             <p>Name: {record.patientName}</p>
             <p>Diagnosis: {record.diagnosis}</p>
             <p>Treatment: {record.treatment}</p>
